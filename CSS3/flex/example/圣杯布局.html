@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<style>
+    * {
+      padding: 0;
+      margin: 0;
+    }
+    .container{
+        display:flex;
+        height:100vh;
+    }
+    aside{
+        width:50px;
+        background:#ccc;
+    }
+    main{
+        flex-grow:1; /* 使中间主元素空间自动扩充 */
+        background:#def;
+    }
+    nav{
+        width:80px;
+        background:#ccc;
+        order:-1; /* 使order处于最左侧(html中main写在了最前，以利于优先加载主内容区) */
+    }
+</style>
+<body>
+    <div class="container">
+        <main>main</main>
+        <aside>aside</aside>
+        <nav>nav</nav>
+    </div>
+</body>
+
+</html>

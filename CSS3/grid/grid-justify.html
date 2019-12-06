@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>display: grid</title>
+
+    <style>
+        article {
+            margin: 0 auto;
+            width: 400px;
+            height: 100px;
+            border: solid 1px silver;
+            display: grid;
+            grid-template-columns: repeat(4, 100px);
+            /* justify-items: start; */
+            /* justify-items: end; */
+            /* justify-items: center; */
+            justify-items: stretch;
+            /* align-items: start; */
+            /* align-items: end; */
+            /* align-items: center; */
+            align-items: stretch;
+
+        }
+
+        div {
+            padding: 10px;
+            background: blueviolet;
+            background-clip: content-box;
+            border: solid 1px burlywood;
+            box-sizing: border-box;
+            font-size: 25px;
+            color: white;
+        }
+
+    </style>
+</head>
+
+<body>
+
+    <article>
+        <div>1</div>
+        <div>2</div>
+        <div>3</div>
+        <div>4</div>
+    </article>
+
+</body>
+
+</html>

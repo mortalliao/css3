@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<style>
+    * {
+      padding: 0;
+      margin: 0;
+    }
+    ul{
+        display:flex;
+        flex-wrap:wrap; /* 使得每行填满时会自动换行 */
+    }
+    li{
+        list-style:none;
+        flex:0 0 25%; /* 相当于flex-basis:25%，使得每一个列表项的宽度占外层容器(本例中的ul元素)的25%，因此每行最多能够排开四个列表项。 */
+        background:#ddd;
+        height:100px;
+        border:1px solid red;
+    }
+
+</style>
+<body>
+    <ul>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+    </ul>
+</body>
+</html>

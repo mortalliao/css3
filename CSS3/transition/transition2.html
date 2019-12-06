@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>transition</title>
+
+    <!-- CSS3 animated properties -->
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            width: 100vh;
+            height: 100vh;
+            background: #34495e;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        main {
+            width: 200px;
+            height: 200px;
+            position: relative;
+        }
+
+        div {
+            width: 200px;
+            height: 200px;
+        }
+
+        div::before {
+            content: '渐变';
+            position: absolute;
+            width: 200px;
+            height: 200px;
+            border-radius: 10%;
+            font-size: #2c3e50;
+            background: #95a5a6;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 3em;
+            cursor: pointer;
+            transition-duration: 2s;
+        }
+
+        div:hover::before {
+            transform: rotate(360deg);
+        }
+
+        div::after {
+            content: 'css3';
+            position: absolute;
+            bottom: -55px;
+            width: 200px;
+            text-align: center;
+            color: #95a5a6;
+            font-size: 1.8em;
+            transform: translateX(-999px) skew(45deg);
+            transition-duration: 1s;
+        }
+
+        div.move::after {
+            transform: translateX(0px) skew(0deg);
+        }
+    </style>
+</head>
+
+<body>
+
+    <main>
+        <div></div>
+    </main>
+
+</body>
+
+<script>
+    document.querySelector('div').addEventListener('transitionend', function (e) {
+        document.querySelector('div').className = 'move';
+    });
+</script>
+
+</html>

@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+    * {
+      padding: 0;
+      margin: 0;
+    }
+    header{
+      height:100px;
+      background:#ccc;
+    }
+    footer{
+      height:100px;
+      background:#ccc;
+    }
+    .container{
+      display:flex;
+      flex-direction:column; /* 使整体布局从上到下排列 */
+      height:100vh;
+    }
+    main{
+      flex-grow:1; /* 应用于main，使得main自动填充剩余空间 */
+    }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <header>header...</header>
+        <main>内容</main>
+        <footer>footer...</footer>
+    </div>
+</body>
+
+</html>

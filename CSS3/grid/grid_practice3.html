@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>grid_practice</title>
+
+    <style>
+        * {
+            margin: 0px;
+            padding: 0px;
+        }
+
+        article {
+            width: 100vw;
+            height: 100vh;
+            display: grid;
+            grid-template-rows: 60px 1fr 60px;
+            grid-template-columns: 60px 1fr;
+            grid-template-areas: "header header"
+                "... ."
+                "footer footer";
+        }
+
+        header {
+            grid-area: header;
+            background: #000;
+        }
+
+        nav,
+        main,
+        footer {
+            background: blueviolet;
+            background-clip: content-box;
+            padding: 10px;
+        }
+
+        footer {
+            grid-area: footer;
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+        }
+
+        footer div {
+            background: #ddd;
+            background-clip: content-box;
+            padding: 3px;
+        }
+    </style>
+</head>
+
+<body>
+
+    <article>
+        <header></header>
+        <div>nav</div>
+        <div>main</div>
+        <footer>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+        </footer>
+    </article>
+
+</body>
+
+</html>

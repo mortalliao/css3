@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<style>
+    * {
+      padding: 0;
+      margin: 0;
+    }
+    .row{
+        display:flex;
+        flex-wrap:wrap;
+        border:1px solid black;
+    }
+    .column{
+        list-style:none;
+        background:#ddd;
+        flex:1;
+        /*
+        这里针对item应用了flex:1,相当于flex:1 1 0%,而之所以不管各个column元素内容的宽度为多大，都能均分到相等的空间，
+        正是因为相当于在设置了flex-grow:1使得剩余空间按相等比例自动分配的同时又设置了flex-basis:0%,才使得整个空间都平均分配了
+        */
+        height:100px;
+        border:1px solid red;
+    }
+</style>
+
+<body>
+    <div class="row">
+        <div class="column">column1</div>
+        <div class="column">colum22</div>
+        <div class="column">colum322</div>
+    </div>
+</body>
+
+</html>

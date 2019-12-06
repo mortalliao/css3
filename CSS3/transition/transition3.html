@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>transition</title>
+
+    <!-- CSS3 animated properties -->
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            width: 100vh;
+            height: 100vh;
+            background: #34495e;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        main {
+            width: 400px;
+            height: 400px;
+        }
+
+        div {
+            width: 200px;
+            height: 200px;
+            background: #9b59b6;
+            border: solid 20px white;
+            /* transition: .5s; */
+            /* transition-property: all; */
+            transition-property: background, width, height, border-radius;
+            transition-duration: 200ms, 3s, 1s;
+            /* transition-timing-function: linear; */
+            /* transition-timing-function: steps(3, start); */
+            /* transition-timing-function: step-start; */
+            /* transition-timing-function: step-end; */
+            transition-timing-function: ease;
+        }
+
+        div:hover {
+            /* transition-property: background;
+            transition-duration: 3s; */
+            width: 400px;
+            height: 400px;
+            border-radius: 50%;
+            /* border: dashed 50px white; */
+            background: #e74c3c;
+        }
+    </style>
+</head>
+
+<body>
+
+    <main>
+        <div></div>
+    </main>
+
+</body>
+
+</html>

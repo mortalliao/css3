@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>closure</title>
+</head>
+
+<body>
+
+    <button onclick="inner()">+++++</button>
+
+</body>
+
+<script>
+
+    function outer() {
+        var a = '变量';
+        var i = 0;
+        var inner = function () {
+            console.info(a);
+            console.log(i++);
+        }
+        return inner;
+    }
+
+    var inner = outer();
+    inner();
+
+</script>
+
+</html>

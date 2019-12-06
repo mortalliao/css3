@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<style>
+    * {
+      padding: 0;
+      margin: 0;
+    }
+    ul{
+        display:flex;
+        flex-wrap:wrap;
+        justify-content:space-between; /* 使主轴方向的多余空间平均分配在两两item之间 */
+        border:1px solid black;
+    }
+    li{
+        list-style:none;
+        width:120px;
+        background:#ddd;
+        height:100px;
+        border:1px solid red;
+    }
+</style>
+
+<body>
+    <ul>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+    </ul>
+</body>
+
+</html>
