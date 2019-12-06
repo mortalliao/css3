@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>window</title>
+</head>
+
+<body>
+    <input type="button" value="location.reload()" onclick="location.reload()">
+    <input type="button" value="window.close()" onclick="window.close()">
+
+</body>
+
+<script>
+
+    // window, self
+    console.log('window == self : ' + window == self);
+    console.log('window == parent : ' + window == parent);
+
+    // 关闭窗口之前
+    // window.onbeforeunload = function () {
+    //     alert("要关闭窗口吗？");
+    // };
+
+    // navigator导航对象
+    // userAgent获取浏览器类型
+    console.log('navigator.userAgent : ' + navigator.userAgent);
+
+    // screen屏幕对象
+    // availWidth屏幕有效宽度,  availHeight屏幕有效高度
+    //alert(screen.availWidth + "==" + screen.availHeight);
+
+    // location位置对象
+    console.log('location.href : ' + location.href);
+
+    // 跳转到 http://baidu.com
+    // location.href = "http://baidu.com";
+
+    // 获取请求URL后面的参数 url?key=value
+    console.log('location.search : ' + location.search);
+
+    // location.replace("http://baidu.com");
+
+    // print打印
+    //window.print();
+
+</script>
+
+</html>

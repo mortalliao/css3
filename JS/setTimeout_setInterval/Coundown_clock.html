@@ -1,0 +1,105 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+
+<head>
+	<title> 倒计时 </title>
+	<meta name="author" content="Jim" />
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+	<meta http-equiv="pragma" content="no-cache" />
+	<meta http-equiv="Cache-Control" content="no-cache, must-revalidate" />
+	<meta name="Keywords" content="keyword1,keyword2,keyword3" />
+	<meta name="Description" content="倒计时" />
+	<meta name="Author" content="jimliao.win" />
+	<meta name="Copyright" content="All Rights Reserved." />
+	<link rel="shortcut icon" type="image/x-icon" href="favor.ico" />
+	<link rel="stylesheet" type="text/css" href="" />
+	<script type="text/javascript">
+		var str = "2020-01-01 00:00:00";
+		// g: global
+		alert(str.replace(/-/g, "/"));
+
+		// yyyy-MM-dd HH:mm:ss --> yyyy/MM/dd HH:mm:ss
+		// 
+		alert(Date.parse("2020/01/01 00:00:00"));
+
+		//alert(Math.floor(1001/1000));
+
+		var $ = function (eleId) {
+			return document.getElementById(eleId);
+		};
+
+		window.onload = function () {
+			/** 获取倒计时按钮为它绑定点击事件 */
+			$("btn").onclick = function () {
+				/** 获取目标时间 */
+				var targetDate = $("targetDate").value;
+				/** 获取目标时间的毫秒数 */
+				var targetMillis = Date.parse(targetDate.replace(/-/g, "/"));
+				/** 调用倒计时函数 */
+				downFun(targetMillis);
+			};
+		};
+
+		/** 倒计时函数 */
+		var downFun = function (targetMillis) {
+			/** 获取当前系统时间 */
+			var currentDate = new Date();
+			/** 比较两个时间，计算出相差的 天数、小时、分、秒 */
+			/** 获取当前系统时间的毫秒数 */
+			var currentMillis = currentDate.getTime();
+
+			/** 判断两个时间的毫秒数 */
+			if (currentMillis <= targetMillis) {
+				/** 计算相差毫秒数 */
+				var millisSeconds = targetMillis - currentMillis;
+				/** 计算出相差的秒数 */
+				var seconds = Math.floor(millisSeconds / 1000);
+				/** 计算出相差的分数 */
+				var minutes = Math.floor(seconds / 60);
+				/** 计算出相差的小时 */
+				var hours = Math.floor(minutes / 60);
+				/** 计算出相差的天 */
+				var day = Math.floor(hours / 24);
+
+				// 剩余时间
+				var arr = new Array();
+				if (day > 0) {
+					arr.push(day + "天&nbsp;");
+				}
+				if (hours > 0) {
+					arr.push((hours - (day * 24)) + "时");
+				}
+				if (minutes > 0) {
+					arr.push((minutes - (hours * 60)) + "分");
+				}
+				if (seconds > 0) {
+					arr.push((seconds - (minutes * 60)) + "秒");
+				}
+				$("div").innerHTML = "剩余时间：" + arr.join("");
+
+				/** 
+				 * 延迟的定时器 
+				 * 第一个参数：函数调用字符串|匿名函数
+				 * 第二个参数：毫秒数
+				 */
+				//setTimeout("downFun("+ targetMillis +");", 1000);
+				setTimeout(function () {
+					downFun(targetMillis);
+				}, 1000);
+			} else {
+				// 不需要倒计
+				$("div").innerHTML = "";
+			}
+		};
+	</script>
+</head>
+
+<body>
+	目标时间：
+	<input type="text" id="targetDate" class="Wdate" value="2020-01-01 00:00:00" onClick="" />
+	<input type="button" value="倒计" id="btn" />
+
+	<div id="div"></div>
+</body>
+
+</html>

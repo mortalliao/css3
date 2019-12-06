@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>ajax</title>
+</head>
+
+<body>
+
+</body>
+
+<script>
+
+    // 创建ajax对象 (XMLHttpRequest)
+    var xhr = new XMLHttpRequest();
+
+    // 调用xhr对象中的open()方法建立服务器之间的连接
+    /** 
+     * 第一个参数: 请求方式(get|post)
+     * 第二个参数: 请求URL
+     * 第三个参数: true: 代表异步请求中的异步(不等待服务端的响应数据)
+     *             false: 代表异步请求中的同步(等待服务端的响应数据)
+     */
+    xhr.open("get|post", url, true | false);
+
+    // 调用xhr对象中的send()发送异步请求
+    xhr.send();
+
+    // 获取服务器端的响应数据
+    /** 第四步: 获取服务器端的响应数据 (绑定当读到的状态发生改变的事件)*/
+    xhr.onreadystatechange = function () {
+        if (xhr.readyState == 4) { // 代表读取服务端响应数据完成
+            if (xhr.status == 200) { // 代表服务端响应正常
+                // 获取响应数据
+                alert(xhr.responseText);
+            }
+        }
+    };
+
+    /*
+	xhr.readyState: 4 代表读取服务端响应数据完成.
+	   	0: XMLHttpRequest对象还没有完成初始化。
+		1: XMLHttpRequest对象开始发送请求。
+		2: XMLHttpRequest对象的请求发送完成。
+		3: XMLHttpRequest对象开始读取服务器的响应。
+		4: XMLHttpRequest对象读取服务器响应结束。
+
+	xhr.status的状态码
+		200: 服务器响应正常。
+		400: 无法找到请求的资源。
+		401: 访问资源的权限不够。
+		403: 没有权限访问资源。
+		404: 需要访问的资源不存在。
+		405: 需要访问的资源被禁止。
+		407: 访问的资源需要代理身份验证。
+		414: 请求的URL太长。
+        500: 服务器内部错误。
+    */
+
+</script>
+
+</html>

@@ -1,0 +1,55 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+
+<head>
+    <title>setTimeout clearTimeout setInterval clearInterval</title>
+    <meta name="author" content="Jim" />
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <meta http-equiv="pragma" content="no-cache" />
+    <meta http-equiv="Cache-Control" content="no-cache, must-revalidate" />
+    <meta name="Keywords" content="keyword1,keyword2,keyword3" />
+    <meta name="Description" content="setTimeout clearTimeout setInterval clearInterval" />
+    <meta name="Author" content="jimliao.win" />
+    <meta name="Copyright" content="All Rights Reserved." />
+    <link rel="shortcut icon" type="image/x-icon" href="favor.ico" />
+    <link rel="stylesheet" type="text/css" href="" />
+    <script type="text/javascript">
+
+        var count = 1;
+        var timeoutFn = function () {
+            document.getElementById("div").innerHTML = count++;
+            clearTimeoutFn();
+            /** 延迟的定时器 */
+            window.timeout = setTimeout("timeoutFn()", 100);
+        };
+        var clearTimeoutFn = function () {
+            if (window.timeout) {
+                clearTimeout(timeout);
+            }
+        };
+
+        var intervalFn = function () {
+            clearIntervalFn();
+            /** 真正的定时器 */
+            window.interval = setInterval(function () {
+                document.getElementById("div").innerHTML = count++;
+            }, 100);
+        };
+        var clearIntervalFn = function () {
+            if (window.interval) {
+                clearInterval(interval);
+            }
+        };
+    </script>
+</head>
+
+<body>
+    <input type="button" value="setTimeout" onclick="timeoutFn();" />
+    <input type="button" value="clearTimeout" onclick="clearTimeoutFn();" />
+
+    <input type="button" value="setInterval" onclick="intervalFn();" />
+    <input type="button" value="clearInterval" onclick="clearIntervalFn();" />
+    <div id="div"></div>
+</body>
+
+</html>
