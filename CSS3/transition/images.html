@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>CSS切换图片</title>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            width: 100vh;
+            height: 100vh;
+            background: #34495e;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        main {
+            width: 400px;
+            height: 200px;
+            overflow: hidden;
+        }
+
+        main:hover section {
+            transform: translateX(-400px);
+        }
+
+        section {
+            width: 800px;
+            height: 200px;
+            display: flex;
+            transition-duration: 2s;
+            /* 去除滑动 */
+            transition-timing-function: step-start;
+        }
+
+        div {
+            width: 400px;
+            height: 200px;
+            overflow: hidden;
+            background: #9b59b6;
+            font-size: 2em;
+            line-height: 200px;
+            text-align: center;
+        }
+
+        img {
+            width: 100%;
+        }
+    </style>
+</head>
+
+<body>
+    <main>
+        <section>
+            <div><img src="./imgs/1.jpg" alt=""></div>
+            <!-- <div><img src="./imgs/2.jpg" alt=""></div> -->
+            <div>
+                <h2>Test</h2>
+            </div>
+        </section>
+    </main>
+
+</body>
+
+
+
+</html>

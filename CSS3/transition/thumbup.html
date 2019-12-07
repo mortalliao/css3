@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+    <link rel="stylesheet" href="https://cdn.bootcss.com/font-awesome/5.11.2/css/all.min.css">
+    <title>thumbup</title>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            width: 100vh;
+            height: 100vh;
+            background: #f3f3f3;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        main {
+            width: 100px;
+            height: 100px;
+            position: relative;
+            /* border: solid 1px #ddd; */
+        }
+
+        i.fa {
+            font-size: 100px;
+            color: #95a5a6;
+            position: absolute;
+            transition-duration: 1s;
+        }
+
+        main.heart i.fa {
+            transform: scale(3);
+            color: #e74c3c;
+            opacity: 0;
+        }
+
+        main.heart i.fa:nth-child(2) {
+            transform: scale(1);
+            opacity: 1;
+        }
+    </style>
+</head>
+
+<body>
+    <main onclick="toggle()">
+        <i class="fa fa-heart" aria-hidden="true"></i>
+        <i class="fa fa-heart" aria-hidden="true"></i>
+    </main>
+
+</body>
+
+<script>
+
+    function heart() {
+        var toggle = false;
+        return function () {
+            var main = document.getElementsByTagName('main')[0];
+            if (!toggle) {
+                main.classList.add('heart');
+                toggle = true;
+            } else {
+                main.classList.remove('heart');
+                toggle = false;
+            }
+            console.log(toggle);
+        }
+    }
+
+    var toggle = heart();
+
+
+
+</script>
+
+</html>
