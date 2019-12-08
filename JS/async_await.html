@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>async await</title>
+    <title>Document</title>
 </head>
 
 <body>
@@ -13,7 +13,20 @@
 </body>
 
 <script>
+    function testAwait(arg) {
+        console.log(arg);
+        return arg + 2;
+    }
 
+    async function testAsync() {
+        console.log("start");
+        var result1 = await testAwait(1);
+        var result2 = await testAwait(result1);
+        var result3 = await testAwait(result2);
+        console.log("done");
+    };
+
+    testAsync();
 </script>
 
 </html>
