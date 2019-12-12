@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>03-CanvasDemo.html</title>
+
+<meta name="keywords" content="keyword1,keyword2,keyword3">
+<meta name="description" content="this is my page">
+<meta name="content-type" content="text/html; charset=UTF-8">
+
+<!--<link rel="stylesheet" type="text/css" href="./styles.css">-->
+
+</head>
+
+<body>
+	<canvas id="canvas" width="400" height="600" style="border: 1px solid;" />
+
+	<script type="text/javascript">
+		// 获取画笔
+		var canvas = document.getElementById("canvas");
+		var context = canvas.getContext("2d");
+
+		//绘制树叶 树枝 路径
+		function createCanopyPath(context) {
+			context.beginPath();
+
+			context.moveTo(-25, -50);
+			context.lineTo(-10, -80);
+			context.lineTo(-20, -80);
+			context.lineTo(-5, -110);
+			context.lineTo(-15, -110);
+
+			context.lineTo(0, -140);
+
+			context.lineTo(15, -110);
+			context.lineTo(5, -110);
+			context.lineTo(20, -80);
+			context.lineTo(10, -80);
+			context.lineTo(25, -50);
+
+			context.closePath();
+		}
+
+		//绘制树
+		function drawTree(context) {
+			//树叶
+			createCanopyPath(context);
+			context.strokeStyle = "#663300";
+			context.lineWidth = 4;
+			context.lineJoin = "round";
+			context.stroke();
+
+			context.fillStyle = "#339900";
+			context.fill();
+
+			//树干
+			//横行 颜色 线性渐变
+			var trunkGradient = context.createLinearGradient(-5, 0, 5, 0);
+			trunkGradient.addColorStop(0, "#663300");
+			trunkGradient.addColorStop(0.4, "#996600");
+			trunkGradient.addColorStop(1, "#552200");
+
+			context.fillStyle = trunkGradient;
+			context.fillRect(-5, -50, 10, 50);
+
+			//纵向 透明度 线性渐变
+			var trunkAlphaGradient = context.createLinearGradient(0, -50, 0, 0);
+			trunkAlphaGradient.addColorStop(0, "rgba(0,0,0,0.5)");
+			trunkAlphaGradient.addColorStop(0.2, "rgba(0,0,0,0.0)");
+
+			context.fillStyle = trunkAlphaGradient;
+			context.fillRect(-5, -50, 10, 50);
+
+			//倒影
+			context.transform(1, 0, -0.5, 1, 0, 0); //矩阵变换
+			context.scale(1.0, 0.6);//比例大小    按给定的缩放倍率缩放，1.0,为不变
+			context.fillStyle = "rgba(0,0,0,0.2)";
+			context.fillRect(-5, -50, 10, 50);
+
+			createCanopyPath(context);
+			context.fill();
+		}
+
+		//绘制封面
+		function drawTrails() {
+			//绘制小树
+			context.save()//在绘制状态堆上保存
+
+			context.translate(130, 250);//Canvas 的原点到一个指定的值
+			drawTree(context);
+
+			context.restore();//弹出堆最上面保存的绘图状态
+
+			//绘制大树
+			context.save()//在绘制状态堆上保存
+
+			context.translate(260, 500);//Canvas 的原点到一个指定的值
+			context.scale(2.0, 2.0);
+			drawTree(context);
+
+			context.restore();//弹出堆最上面保存的绘图状态
+
+			//碎石路
+			context.save();
+
+			context.beginPath();
+			context.translate(-10, 350);
+			context.moveTo(0, 0);
+			context.quadraticCurveTo(170, 50, 260, -190);//二次贝赛尔曲线  
+			context.quadraticCurveTo(310, -250, 410, -250);//二次贝赛尔曲线  
+			context.strokeStyle = context.createPattern(gravel, "repeat");//重复填充
+			context.lineWidth = 20;
+			context.stroke();
+
+			context.restore();
+
+			//文字
+			context.save();
+
+			context.font = "60px impact";//是一款自带撕边特效的英文字体，不会文字处理的朋友们可以使用这款字体
+			context.textAlign = "center";//文字 居中
+			context.fillStyle = "#996600";
+			context.fillText("Happy-Trails", 200, 60, 400);
+			//文字倒影
+			context.transform(1, 0, -0.5, 1, 0, 0); //矩阵变换
+			context.scale(1.0, 0.8);//比例大小    按给定的缩放倍率缩放，1.0,为不变
+			context.fillStyle = "rgba(0,0,0,0.2)";
+			context.fillText("Happy-Trails", 230, 80, 400);
+
+			context.restore();
+		}
+
+		var gravel = new Image();
+		gravel.src = "content/gravel.jpg";
+		gravel.onload = function() {
+			drawTrails();
+		}
+	</script>
+
+</body>
+</html>

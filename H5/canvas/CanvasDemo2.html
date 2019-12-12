@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>03-CanvasDemo.html</title>
+
+<meta name="keywords" content="keyword1,keyword2,keyword3">
+<meta name="description" content="this is my page">
+<meta name="content-type" content="text/html; charset=UTF-8">
+
+<!--<link rel="stylesheet" type="text/css" href="./styles.css">-->
+
+</head>
+
+<body>
+	<canvas id="canvas" width="1000" height="800" />
+
+	<script type="text/javascript">
+		// 画布
+		var canvas = document.getElementById("canvas");
+
+		// 画笔
+		var context = canvas.getContext("2d");
+
+		// 样式
+		context.strokeStyle = "rgba(255,0,0,0.5)";//返回当前描绘形状的风格,能被设置,其值同上
+
+		// 画圆
+		context.beginPath();
+
+		//context.fillRect(圆点坐标x, 圆点坐标y, 半径, 起点角度, 终点角度, false)
+		context.arc(300, 300, 20, 0, Math.PI * 2, false);//false顺时针		true逆时针
+		context.closePath();
+
+		context.stroke();
+	</script>
+
+</body>
+</html>

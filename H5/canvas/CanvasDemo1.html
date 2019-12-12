@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>03-CanvasDemo.html</title>
+
+<meta name="keywords" content="keyword1,keyword2,keyword3">
+<meta name="description" content="this is my page">
+<meta name="content-type" content="text/html; charset=UTF-8">
+
+<!--<link rel="stylesheet" type="text/css" href="./styles.css">-->
+
+</head>
+
+<body>
+	<canvas id="canvas" width="1000" height="800" />
+
+	<script type="text/javascript">
+		// 纸
+		var canvas = document.getElementById("canvas");
+
+		// 笔
+		var context = canvas.getContext("2d");
+
+		// 墨汁	指定样式
+		context.strokeStyle = "#ff0000";//返回当前描绘形状的风格,能被设置,其值同上
+
+		//写毛笔字
+		context.strokeRect(100, 100, 200, 100);//使用当前给定的线风格,绘制一个盒子区域
+
+		//指定样式,绘制矩形
+		context.fillStyle = "#ffff00";
+		context.fillRect(300, 300, 200, 200);//用当前的填充风格填充给定的区域
+
+		//三角形
+		//context.beginPath();
+
+		context.moveTo(500, 100);
+		context.lineTo(500, 300);
+		context.lineTo(700, 300);
+		context.lineTo(500, 100);
+
+		//context.closePath();
+
+		context.strokeStyle = "#ff0000";
+		context.lineWidth = 3;
+		context.stroke();//以线条方式 			
+		context.fill()//以context.fill()填充方式
+	</script>
+
+</body>
+</html>
